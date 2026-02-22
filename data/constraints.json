@@ -1,0 +1,80 @@
+{
+  "precedence_constraints": {
+    "description": "Tasks must complete before successors can start",
+    "enforced": true
+  },
+  "resource_capacity_constraints": {
+    "description": "Cannot exceed available capacity of any resource at any time",
+    "enforced": true
+  },
+  "time_window_constraints": {
+    "description": "Tasks must start within allowed time windows",
+    "enforced": true,
+    "launch_window_hard_constraint": true
+  },
+  "safety_buffer_constraints": {
+    "description": "Required time gaps between hazardous operations",
+    "enforced": true,
+    "default_buffer_hours": {
+      "low_to_low": 0,
+      "low_to_medium": 2,
+      "low_to_high": 4,
+      "low_to_critical": 8,
+      "medium_to_medium": 4,
+      "medium_to_high": 8,
+      "medium_to_critical": 12,
+      "high_to_high": 12,
+      "high_to_critical": 24,
+      "critical_to_any": 48
+    }
+  },
+  "shift_constraints": {
+    "description": "Work can only occur during crew shift hours",
+    "enforced": true,
+    "allow_overtime": true,
+    "overtime_cost_multiplier": 1.5,
+    "max_overtime_hours_per_day": 4
+  },
+  "facility_compatibility": {
+    "description": "Tasks can only use compatible facilities",
+    "enforced": true
+  },
+  "crew_certification": {
+    "description": "Crews must have required certifications for tasks",
+    "enforced": true
+  },
+  "weather_constraints": {
+    "description": "Certain operations have weather restrictions",
+    "enforced": false,
+    "rules": {
+      "no_launch_if_wind_above_knots": 30,
+      "no_rollout_if_wind_above_knots": 25,
+      "no_fueling_if_lightning_risk": true
+    }
+  },
+  "maintenance_windows": [
+    {
+      "resource_id": "Pad-39B",
+      "start": "2028-02-15T00:00:00Z",
+      "end": "2028-02-20T00:00:00Z",
+      "reason": "Scheduled pad refurbishment"
+    },
+    {
+      "resource_id": "VAB-High-Bay-2",
+      "start": "2028-01-20T00:00:00Z",
+      "end": "2028-01-25T00:00:00Z",
+      "reason": "Crane maintenance"
+    }
+  ],
+  "priority_rules": {
+    "description": "Higher priority missions get preferential resource allocation",
+    "enforced": true,
+    "tie_breaker": "earliest_launch_window"
+  },
+  "optimization_settings": {
+    "time_limit_seconds": 3600,
+    "mip_gap_tolerance": 0.01,
+    "focus_on_feasibility_first": true,
+    "use_heuristic_warm_start": true
+  }
+}

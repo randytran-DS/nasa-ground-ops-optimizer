@@ -1,0 +1,59 @@
+{
+  "missions": [
+    {
+      "id": "ARTEMIS-IV",
+      "name": "Artemis IV - Lunar Gateway Crew Mission",
+      "type": "crewed",
+      "priority": 1,
+      "launch_window_start": "2028-03-15T00:00:00Z",
+      "launch_window_end": "2028-03-20T00:00:00Z",
+      "tasks": [
+        {"id": "ARTEMIS-IV-01", "name": "Core Stage Receiving & Inspection", "duration_hours": 24, "required_resources": ["VAB-High-Bay-3", "Inspection-Crew", "Crane-325T"], "hazard_level": "low"},
+        {"id": "ARTEMIS-IV-02", "name": "Core Stage Stacking", "duration_hours": 48, "required_resources": ["VAB-High-Bay-3", "Assembly-Crew-A", "Crane-325T"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-01"]},
+        {"id": "ARTEMIS-IV-03", "name": "Solid Rocket Booster Assembly Left", "duration_hours": 72, "required_resources": ["VAB-High-Bay-3", "Assembly-Crew-B", "Crane-325T"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-02"]},
+        {"id": "ARTEMIS-IV-04", "name": "Solid Rocket Booster Assembly Right", "duration_hours": 72, "required_resources": ["VAB-High-Bay-3", "Assembly-Crew-B", "Crane-325T"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-02"], "parallel_with": ["ARTEMIS-IV-03"]},
+        {"id": "ARTEMIS-IV-05", "name": "ICPS Upper Stage Integration", "duration_hours": 36, "required_resources": ["VAB-High-Bay-3", "Assembly-Crew-A", "Crane-325T"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-03", "ARTEMIS-IV-04"]},
+        {"id": "ARTEMIS-IV-06", "name": "Orion Spacecraft Mate", "duration_hours": 24, "required_resources": ["VAB-High-Bay-3", "Assembly-Crew-A", "Crane-325T"], "hazard_level": "high", "predecessors": ["ARTEMIS-IV-05"]},
+        {"id": "ARTEMIS-IV-07", "name": "Integrated Systems Test", "duration_hours": 96, "required_resources": ["VAB-High-Bay-3", "Test-Crew", "GSE-Command"], "hazard_level": "low", "predecessors": ["ARTEMIS-IV-06"]},
+        {"id": "ARTEMIS-IV-08", "name": "Vehicle Rollout to Pad 39B", "duration_hours": 12, "required_resources": ["Crawler-Transporter-2", "Transport-Crew", "Pad-39B"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-07"]},
+        {"id": "ARTEMIS-IV-09", "name": "Launch Pad Integration", "duration_hours": 48, "required_resources": ["Pad-39B", "Test-Crew", "GSE-Command"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-08"]},
+        {"id": "ARTEMIS-IV-10", "name": "Wet Dress Rehearsal", "duration_hours": 24, "required_resources": ["Pad-39B", "Test-Crew", "GSE-Propellant", "Fueling-Crew"], "hazard_level": "high", "predecessors": ["ARTEMIS-IV-09"], "safety_buffer_after_hours": 24},
+        {"id": "ARTEMIS-IV-11", "name": "Final Pre-Launch Processing", "duration_hours": 72, "required_resources": ["Pad-39B", "Test-Crew", "GSE-Command"], "hazard_level": "medium", "predecessors": ["ARTEMIS-IV-10"]},
+        {"id": "ARTEMIS-IV-12", "name": "Propellant Loading", "duration_hours": 8, "required_resources": ["Pad-39B", "Fueling-Crew", "GSE-Propellant"], "hazard_level": "high", "predecessors": ["ARTEMIS-IV-11"], "safety_buffer_after_hours": 4},
+        {"id": "ARTEMIS-IV-13", "name": "Launch", "duration_hours": 0.5, "required_resources": ["Pad-39B", "Launch-Crew", "GSE-Command"], "hazard_level": "critical", "predecessors": ["ARTEMIS-IV-12"]}
+      ]
+    },
+    {
+      "id": "CLPS-2028-ALPHA",
+      "name": "CLPS Lunar Payload Delivery",
+      "type": "cargo",
+      "priority": 2,
+      "launch_window_start": "2028-02-01T00:00:00Z",
+      "launch_window_end": "2028-02-28T00:00:00Z",
+      "tasks": [
+        {"id": "CLPS-01", "name": "Payload Processing", "duration_hours": 48, "required_resources": ["CPF-Bay-1", "Payload-Crew"], "hazard_level": "low"},
+        {"id": "CLPS-02", "name": "Payload Encapsulation", "duration_hours": 12, "required_resources": ["CPF-Bay-1", "Payload-Crew"], "hazard_level": "low", "predecessors": ["CLPS-01"]},
+        {"id": "CLPS-03", "name": "Falcon 9 Integration at Hangar", "duration_hours": 24, "required_resources": ["LC-39A-Hangar", "Assembly-Crew-C"], "hazard_level": "medium", "predecessors": ["CLPS-02"]},
+        {"id": "CLPS-04", "name": "Transport to Launch Site", "duration_hours": 6, "required_resources": ["Transport-Crew", "LC-39A"], "hazard_level": "low", "predecessors": ["CLPS-03"]},
+        {"id": "CLPS-05", "name": "Launch Readiness Test", "duration_hours": 12, "required_resources": ["LC-39A", "Test-Crew"], "hazard_level": "low", "predecessors": ["CLPS-04"]},
+        {"id": "CLPS-06", "name": "Launch", "duration_hours": 0.3, "required_resources": ["LC-39A", "Launch-Crew"], "hazard_level": "high", "predecessors": ["CLPS-05"]}
+      ]
+    },
+    {
+      "id": "ISS-RESUPPLY-82",
+      "name": "ISS Commercial Resupply Mission 82",
+      "type": "cargo",
+      "priority": 3,
+      "launch_window_start": "2028-01-15T00:00:00Z",
+      "launch_window_end": "2028-01-30T00:00:00Z",
+      "tasks": [
+        {"id": "ISS-82-01", "name": "Cargo Processing", "duration_hours": 36, "required_resources": ["SPF-Bay-2", "Payload-Crew"], "hazard_level": "low"},
+        {"id": "ISS-82-02", "name": "Dragon Spacecraft Prep", "duration_hours": 48, "required_resources": ["SPF-Bay-1", "Assembly-Crew-C"], "hazard_level": "medium"},
+        {"id": "ISS-82-03", "name": "Cargo Loading", "duration_hours": 24, "required_resources": ["SPF-Bay-1", "Payload-Crew"], "hazard_level": "low", "predecessors": ["ISS-82-01", "ISS-82-02"]},
+        {"id": "ISS-82-04", "name": "Dragon Integration with Falcon 9", "duration_hours": 18, "required_resources": ["LC-39A-Hangar", "Assembly-Crew-C"], "hazard_level": "medium", "predecessors": ["ISS-82-03"]},
+        {"id": "ISS-82-05", "name": "Pre-flight Processing", "duration_hours": 24, "required_resources": ["LC-39A", "Test-Crew"], "hazard_level": "low", "predecessors": ["ISS-82-04"]},
+        {"id": "ISS-82-06", "name": "Launch", "duration_hours": 0.2, "required_resources": ["LC-39A", "Launch-Crew"], "hazard_level": "high", "predecessors": ["ISS-82-05"]}
+      ]
+    }
+  ]
+}

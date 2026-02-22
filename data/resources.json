@@ -1,0 +1,206 @@
+{
+  "facilities": [
+    {
+      "id": "VAB-High-Bay-3",
+      "name": "Vehicle Assembly Building - High Bay 3",
+      "type": "assembly",
+      "capacity": 1,
+      "hourly_cost": 5000,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["stacking", "integration", "testing"]
+    },
+    {
+      "id": "VAB-High-Bay-2",
+      "name": "Vehicle Assembly Building - High Bay 2",
+      "type": "assembly",
+      "capacity": 1,
+      "hourly_cost": 5000,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["stacking", "integration"]
+    },
+    {
+      "id": "Pad-39B",
+      "name": "Launch Complex 39B",
+      "type": "launch_pad",
+      "capacity": 1,
+      "hourly_cost": 15000,
+      "available_hours": {"start": "00:00", "end": "23:59"},
+      "compatible_operations": ["launch", "pad_integration", "fueling"]
+    },
+    {
+      "id": "LC-39A",
+      "name": "Launch Complex 39A",
+      "type": "launch_pad",
+      "capacity": 1,
+      "hourly_cost": 12000,
+      "available_hours": {"start": "00:00", "end": "23:59"},
+      "compatible_operations": ["launch", "pad_integration", "fueling"]
+    },
+    {
+      "id": "LC-39A-Hangar",
+      "name": "LC-39A Horizontal Integration Facility",
+      "type": "hangar",
+      "capacity": 2,
+      "hourly_cost": 2000,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["integration", "processing"]
+    },
+    {
+      "id": "CPF-Bay-1",
+      "name": "Cargo Processing Facility Bay 1",
+      "type": "processing",
+      "capacity": 2,
+      "hourly_cost": 1500,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["payload_processing", "encapsulation"]
+    },
+    {
+      "id": "SPF-Bay-1",
+      "name": "Space Station Processing Facility Bay 1",
+      "type": "processing",
+      "capacity": 1,
+      "hourly_cost": 2000,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["spacecraft_processing", "cargo_loading"]
+    },
+    {
+      "id": "SPF-Bay-2",
+      "name": "Space Station Processing Facility Bay 2",
+      "type": "processing",
+      "capacity": 2,
+      "hourly_cost": 1500,
+      "available_hours": {"start": "06:00", "end": "22:00"},
+      "compatible_operations": ["cargo_processing"]
+    }
+  ],
+  "crews": [
+    {
+      "id": "Assembly-Crew-A",
+      "name": "Assembly Crew Alpha (SLS Specialist)",
+      "type": "assembly",
+      "size": 12,
+      "capacity": 1,
+      "hourly_cost": 1500,
+      "certifications": ["SLS-Assembly", "Heavy-Lift"],
+      "shift_hours": {"start": "06:00", "end": "18:00"}
+    },
+    {
+      "id": "Assembly-Crew-B",
+      "name": "Assembly Crew Bravo (SRB Specialist)",
+      "type": "assembly",
+      "size": 10,
+      "capacity": 1,
+      "hourly_cost": 1200,
+      "certifications": ["SRB-Assembly", "Propulsion"],
+      "shift_hours": {"start": "06:00", "end": "18:00"}
+    },
+    {
+      "id": "Assembly-Crew-C",
+      "name": "Assembly Crew Charlie (Commercial)",
+      "type": "assembly",
+      "size": 8,
+      "capacity": 2,
+      "hourly_cost": 1000,
+      "certifications": ["Falcon9", "Dragon"],
+      "shift_hours": {"start": "06:00", "end": "18:00"}
+    },
+    {
+      "id": "Test-Crew",
+      "name": "Integrated Test Team",
+      "type": "test",
+      "size": 15,
+      "capacity": 1,
+      "hourly_cost": 2000,
+      "certifications": ["IST", "WDR", "Countdown-Sim"],
+      "shift_hours": {"start": "06:00", "end": "22:00"}
+    },
+    {
+      "id": "Inspection-Crew",
+      "name": "Quality Inspection Team",
+      "type": "inspection",
+      "size": 6,
+      "capacity": 2,
+      "hourly_cost": 800,
+      "certifications": ["NDT", "Visual-Inspection"],
+      "shift_hours": {"start": "08:00", "end": "17:00"}
+    },
+    {
+      "id": "Fueling-Crew",
+      "name": "Propellant Loading Team",
+      "type": "fueling",
+      "size": 8,
+      "capacity": 1,
+      "hourly_cost": 1800,
+      "certifications": ["LH2", "LOX", "RP1", "Hypergolic"],
+      "shift_hours": {"start": "00:00", "end": "23:59"}
+    },
+    {
+      "id": "Launch-Crew",
+      "name": "Launch Operations Team",
+      "type": "launch",
+      "size": 20,
+      "capacity": 1,
+      "hourly_cost": 3000,
+      "certifications": ["Launch-Director", "Mission-Control"],
+      "shift_hours": {"start": "00:00", "end": "23:59"}
+    },
+    {
+      "id": "Payload-Crew",
+      "name": "Payload Processing Team",
+      "type": "payload",
+      "size": 8,
+      "capacity": 2,
+      "hourly_cost": 900,
+      "certifications": ["Payload-Integration", "Clean-Room"],
+      "shift_hours": {"start": "06:00", "end": "18:00"}
+    },
+    {
+      "id": "Transport-Crew",
+      "name": "Transport & Logistics Team",
+      "type": "transport",
+      "size": 6,
+      "capacity": 1,
+      "hourly_cost": 700,
+      "certifications": ["Crawler-Op", "Heavy-Transport"],
+      "shift_hours": {"start": "06:00", "end": "22:00"}
+    }
+  ],
+  "equipment": [
+    {
+      "id": "Crane-325T",
+      "name": "325-Ton Overhead Crane",
+      "type": "crane",
+      "capacity": 1,
+      "hourly_cost": 500,
+      "locations": ["VAB-High-Bay-3", "VAB-High-Bay-2"]
+    },
+    {
+      "id": "Crawler-Transporter-2",
+      "name": "Crawler-Transporter 2",
+      "type": "transporter",
+      "capacity": 1,
+      "hourly_cost": 2000,
+      "max_speed_mph": 1
+    },
+    {
+      "id": "GSE-Command",
+      "name": "Ground Support Equipment - Command & Control",
+      "type": "gse",
+      "capacity": 3,
+      "hourly_cost": 300,
+      "interfaces": ["Pad-39B", "LC-39A", "VAB-High-Bay-3"]
+    },
+    {
+      "id": "GSE-Propellant",
+      "name": "Ground Support Equipment - Propellant Systems",
+      "type": "gse",
+      "capacity": 2,
+      "hourly_cost": 600,
+      "interfaces": ["Pad-39B", "LC-39A"]
+    }
+  ],
+  "planning_horizon": {
+    "start_date": "2028-01-01T00:00:00Z",
+    "end_date": "2028-04-01T00:00:00Z"
+  }
+}
