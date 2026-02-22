@@ -119,4 +119,4 @@ MIT License
 
 ## 👤 Author
 
-[Randy] - Operations Research Portfolio Project
+Randy - Operations Research Portfolio Project
